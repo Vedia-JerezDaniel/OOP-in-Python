@@ -6,6 +6,5 @@ std3=Student('Hamza','Akhtar','MCT-UET-03')
 
 print(Student.allStudents)
 
-
-
+print(std2)
 

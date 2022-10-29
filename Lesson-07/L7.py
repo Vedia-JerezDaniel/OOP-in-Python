@@ -9,7 +9,8 @@ std1.registerSubject('CP-II','MOM')
 std2.registerSubject('Mech','ES','MOM')
 std3.registerSubject('CP-II')
 
-print(Student.test(3))
+print(Student.notRegSub())
+print(Student.test(4))
 
 
 
