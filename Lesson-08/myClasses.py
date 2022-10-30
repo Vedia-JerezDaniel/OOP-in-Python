@@ -21,24 +21,29 @@ class Student:
         for s in sub:
             if s not in Student.offSubjects:
                 raise ValueError(f'{s} is not offered!')
-            if s in Student.offSubjects and s not in self.courses:
+            if s not in self.courses:
                 self.courses.append(s)
-    def setGroupMember(self,other):
-        if(self.groupMember!=None):
+    def setGroupMember(self,mate):
+        if(self.groupMember != None):
             raise ValueError(f'{self} already has {self.groupMember} as group member')
-        elif(other.groupMember!=None):
-            raise ValueError(f'{other} already has {other.groupMember} as group member')
+        elif(mate.groupMember!=None):
+            raise ValueError(f'{mate} already has {mate.groupMember} as group member')
         else:
-            self.groupMember=other
-            other.groupMember=self
-    def dropGroupMember(self,other):
-        if(self.groupMember==None and other.groupMember==None):
+            self.groupMember=mate
+            mate.groupMember=self
+    def dropGroupMember(self,mate):
+        if self.groupMember is None and mate.groupMember is None:
             return
-        elif(self.groupMember!=other):
-            raise ValueError(f'{self} is not group member of {other}.')
+        elif(self.groupMember!=mate):
+            raise ValueError(f'{self} is not group member of {mate}.')
         else:
             self.groupMember=None
-            other.groupMember=None
+            mate.groupMember=None
+    
+    @classmethod
+    def withoutGroupMembers(cls):
+        return list(filter(lambda s: s.groupMember is None, cls.allStudents))
+   
     @classmethod
     def notRegSub(cls):
         a=set()
@@ -46,9 +51,6 @@ class Student:
             s=set(std.courses)
             a.update(s)
         return list(set(cls.offSubjects).difference(a))
-    @classmethod
-    def withoutGroupMembers(cls):
-        return list(filter(lambda s: s.groupMember==None,cls.allStudents))
     
 
 

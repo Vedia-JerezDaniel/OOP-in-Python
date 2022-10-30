@@ -10,7 +10,8 @@ class Dice:
 ## Main Program ##
 myDice=Dice()
 
-for i in range(5):
+for _ in range(6):
     myDice.roll()
-    myDice._Dice__sideUp=6
+    # myDice.__sideUp=6
+    "si es _sideUp se puede modificar, si es __sideUp no se puede modificar"
     print(myDice)
