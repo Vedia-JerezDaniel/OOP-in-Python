@@ -14,6 +14,7 @@ class Student:
         self.fName=f
         self.lName=l
         self._fullName=newname
+  
     @property
     def fName(self):
         return self._fName
@@ -23,7 +24,9 @@ class Student:
             self._fName=newname
         else:
             raise ValueError('Name must contain alphabets only and atleast two of those!')
-
+    @ fName.deleter
+    def fName(self):
+        del self._fName
     @property
     def lName(self):
         return self._lName
@@ -46,7 +49,4 @@ class Student:
 
     @staticmethod
     def validName(newname):
-        if(isinstance(newname,str) and len(newname)>=2 and newname.isalpha()):
-            return True
-        else:
-            return False
+        return bool((isinstance(newname, str) and len(newname) > 2 and newname.isalpha()))

@@ -11,4 +11,6 @@ att='fName'
 setattr(std1,att,'Ahmad')
 print(getattr(std1,att))
 
+# cuando no hay un atributo con el nombre especificado, solo se utilza getattr
 print(getattr(std1,'uni','UET'))
+
