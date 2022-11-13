@@ -9,17 +9,19 @@ std2.registerSubject('Mech','ES','MOM')
 std3.registerSubject('CP-II','LA')
 std4.registerSubject('Mech','LA','MOM','ES')
 
-# std1+std2
-# std2-std1
-# print(std1._groupMember)
+print(std1+std2)
+print(std2+std4)
 
-# Student._allStudents.sort()
-# print(Student._allStudents)
-# print(min(Student._allStudents))
+std2-std1
+print(std1._groupMember)
 
-# print(std2>std1)
-# print(std2<=std1)
-# print(len(std1))
+Student._allStudents.sort()
+print(Student._allStudents)
+print(min(Student._allStudents))
+
+print(std2>std1)
+print(std2<=std1)
+print(len(std1))
 
 for i in std2:
     print(i)

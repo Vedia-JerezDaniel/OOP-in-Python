@@ -9,10 +9,7 @@ class Book:
     def __init__(self,title,year,authors=None):
         self.title=title
         self.year=year
-        if(authors is None):
-            self.authors=[]
-        else:
-            self.authors=authors
+        self.authors = [] if (authors is None) else authors
     @property
     def authors(self):
         return self._authors
@@ -34,8 +31,11 @@ auth3=Author('Misbah-ur-Rehman',30)
 print(f'{auth1}={auth1.books}')
 print(f'{auth2}={auth2.books}')  
 print(f'{auth3}={auth3.books}') 
-b1=Book('Python Programming',2020,[auth1,auth2])
-b2=Book('OOP in Python',2020,[auth1,auth3])
+b1=Book('Python Programming',2020,[auth1])
+b2=Book('OOP in Python',2020,[auth1])
+b3=Book('Efficient Python',2022,[auth3])
+b4=Book('Advance Python',2021,[auth3, auth2])
+
 print('_______________')
 print(f'{auth1}={auth1.books}')
 print(f'{auth2}={auth2.books}')  

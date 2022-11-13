@@ -56,16 +56,13 @@ class Student:
     ## Static Methods ##
     @staticmethod
     def validName(name):
-        if(isinstance(name,str) and len(name)>=2 and name.isalpha()):
-            return True
-        else:
-            return False
+        return bool((isinstance(name,str) and len(name)>=2 and name.isalpha()))
     ## Instance Methods ##
     def registerSubject(self,*sub):
         for s in sub:
             if s not in Student._offSubjects:
                 raise ValueError(f'{s} is not offered!')
-            if s in Student._offSubjects and s not in self._courses:
+            if s not in self._courses:
                 self._courses.append(s)
     ## Class Methods ##
     @classmethod
@@ -77,7 +74,7 @@ class Student:
         return list(set(cls._offSubjects).difference(a))
     @classmethod
     def withoutGroupMembers(cls):
-        return list(filter(lambda s: s._groupMember==None,cls._allStudents))
+        return list(filter(lambda s: s._groupMember is None, cls._allStudents))
     
     ## Magic Methods ##
     def __repr__(self):
@@ -108,8 +105,7 @@ class Student:
         yield self.fName
         yield self.lName
         yield self.reg
-        for c in self._courses:
-            yield c
+        yield from self._courses
 
 
 
